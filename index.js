@@ -1,6 +1,10 @@
 const express=require('express');
 const app=express();
 const port=8000;
+const expressLayouts=require('express-ejs-layouts');
+
+app.use(expressLayouts);
+const { use } = require('./routes');
 
 //use of express router----------
 // middleware!!! ./routes/index.js
@@ -10,6 +14,8 @@ app.set('view engine','ejs');
 app.set('views','./views');
 
 //  --------------------------------
+
+// To Run Server
 app.listen(port,function(err){
     if(err){
         console.log('Error',err);

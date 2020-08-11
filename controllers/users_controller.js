@@ -1,7 +1,10 @@
 const User=require('../models/user');
+const { request } = require('express');
 // Profile Function
 module.exports.profile=function(req,res){
-  
+  return res.render('profile',{
+      title:"Codeial Profile"
+  });
 }
 // Sign Up Function
 module.exports.signUp=function(req,res){
@@ -11,6 +14,7 @@ module.exports.signUp=function(req,res){
 }
 
 // Sign In Function
+
 module.exports.signIn=function(req,res){
     return res.render('user_sign_in',{
         title:"Codeial Sign In"
@@ -45,30 +49,14 @@ module.exports.create=function(req,res){
 }
 
 
-// Create User Function for Sign In
+// createSession User Function for Sign In
 module.exports.createSession=function(req,res){
-    // Find THe User
-    User.findOne({email:req.body.email},function(err,user){
-        if(err){
-            console.log('error in finding user in signing in');
-            return
-        }
-        // Handle User Found
-        if(user){
-            // handle Password which doesn't match
-            if(user.password!=req.body.password){
-                return res.redirect('back');
-            }
-            // Handle Session Creation
-            else{
-                res.cookie('user_id',user._id);
-              return res.redirect('/users/profile');
-            }
+    return res.redirect('/');
 
-        }
-        // Handle User Not Found
-        else{
-            return res.redirect('back');
-        }
-    })
+}
+
+// For Sign_out
+module.exports.destroySession=function(req,res){
+    req.logout();
+    return res.redirect('/');
 }

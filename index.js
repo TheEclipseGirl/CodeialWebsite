@@ -9,6 +9,19 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const { Mongoose } = require('mongoose');
 const MongoStore=require('connect-mongo')(session);
+const sassMiddleware=require('node-sass-middleware');
+
+
+// FOR SASS
+app.use(sassMiddleware({
+    src:'./assets/scss',
+    dest:'./assets/css',
+    debug:true,
+    outputStyle:'extended',
+    prefix:'/css'
+}));
+
+
 // for form
 app.use(express.urlencoded({ useNewUrlParser: true }));
 

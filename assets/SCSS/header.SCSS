@@ -1,0 +1,49 @@
+header{
+    background-color: palegreen;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border:4px double green;
+    box-shadow: inset 5px 5px 15px 5px lightseagreen;
+    h1{
+        // background-color: red;
+        width: 50%;
+        text-decoration: olive;
+        font-family:  "Arial Black", Gadget, sans-serif;
+       
+       
+    }
+
+    ul{
+        // background-color: seagreen;
+        width: 20%;
+        list-style-type: none;
+        font-weight: bolder;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: space-between;
+
+        i{
+            font-size: 30px;
+        }
+        li{
+            transition: trasform 1s;
+        }
+    }
+}
+header h1:hover{
+cursor: pointer;
+font-family: "Comic Sans MS", cursive, sans-serif;
+color: rgb(129, 32, 185);
+font-weight: bolder;
+}
+
+header ul li:hover{
+    // font-family:"Comic Sans MS", cursive, sans-serif;
+    color: rgb(89, 0, 255);
+    transform: scale(1.2);
+    
+    // font-weight: bolder;
+    // font-size: 10px;
+}
+
